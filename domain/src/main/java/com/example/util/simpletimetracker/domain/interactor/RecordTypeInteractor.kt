@@ -36,8 +36,8 @@ class RecordTypeInteractor @Inject constructor(
     suspend fun add(recordType: RecordType): Long {
         var newRecord = recordType
 
-        // If there is already an item with this name - override
-        recordTypeRepo.get(recordType.name)
+        // If there is already an item with this id - override
+        recordTypeRepo.get(recordType.id)
             ?.let { saved ->
                 newRecord = recordType.copy(id = saved.id)
             }
